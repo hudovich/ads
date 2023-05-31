@@ -43,6 +43,11 @@ export const massageThank = (actionID, data) =>{
                     dispatch(getMassage(response.data))
                 })
                 break;
+            case 'SET_CHAT_ID':
+                api.chat.setChatID(data).then(response=>{
+                    dispatch(getMassage(response.data))
+                })
+                break
             default:
                 break;
         }

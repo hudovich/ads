@@ -99,6 +99,7 @@ export const api = {
     chat:{
         createMassage: (data) => axios.post(`http://localhost:3001/massage`, data ),
         setChatUser: (id) => axios.get(`http://localhost:3001/massage?idUsers_like=${id}`),
+        setChatID: (id) => axios.get(`http://localhost:3001/massage/${id}`),
         setAllChat: () => axios.get("http://localhost:3001/massage")
     }
 }

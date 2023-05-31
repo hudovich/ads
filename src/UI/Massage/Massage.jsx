@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useForm } from "react-hook-form"
+import { Link } from "react-router-dom";
 
 const Massage = ({massage, users, massageThank, usersThank}) =>{
     
@@ -13,11 +13,6 @@ const Massage = ({massage, users, massageThank, usersThank}) =>{
         } 
     },[massageThank, users]);
 
-    const {register, handleSubmit} = useForm();
-
-    const onSubmit = data => {
-        //console.log(data);
-    }
     return(
         massage !== null ?
         <div>
@@ -25,7 +20,7 @@ const Massage = ({massage, users, massageThank, usersThank}) =>{
                 const elemArr = e.recipient.findIndex(item => item.id === users.id)
                 const elemArrToo = elemArr?0:1;
                 return(
-                    <div key={e.id}>
+                    <Link to={`/chat/${e.id}`} key={e.id}>
                         <p>Мой Акаунт</p>
                         <p>E-mail: {e.recipient[elemArr].email}</p>
                         {e.massage.length === 0 ? 
@@ -35,19 +30,9 @@ const Massage = ({massage, users, massageThank, usersThank}) =>{
                         }
                         <p>Получетель</p>
                         <p>E-mail: {e.recipient[elemArrToo].email}</p>
-                    </div>
+                    </Link>
                 )
             })}
-            <div className="massage">
-                сообщения
-            </div>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <input 
-                    placeholder="Введите сообщения"
-                    {...register("new_masage", {required:true})}
-                />
-                <input type="submit" value="Отправить"/>
-            </form>
         </div>
         : null 
     )

@@ -12,6 +12,7 @@ import EditAcauntBox from './acaunt/editAcaunt/EditAcauntBox';
 import PagesBox from './Pages/PagesBox'
 import EditPostBox from './Post/Edit/EditPostBox'
 import MesengeBox from './Massage/MassageBox'
+import ChatBox from './Massage/Chat/ChatBox';
 
 const Home = ({store}) => {
   return (
@@ -30,6 +31,7 @@ const Home = ({store}) => {
             <Route path="/addPost" element={<EditPostBox />} />
             <Route path="/editPost/:id" element={<EditPostBox />} />
             <Route path="/mesenge" element={<MesengeBox />} />
+            <Route path="/chat/:ChatID" element={<ChatBox />} />
           </Routes>
         <FooterBox />
       </div>
