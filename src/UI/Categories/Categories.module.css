@@ -1,0 +1,51 @@
+.flex{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 15%;
+    background-color: cornflowerblue;
+}
+a{
+    text-decoration: none;
+}
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 110px;
+}
+.img{
+    border-radius: 50%;
+    background-color: blanchedalmond;
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+}
+.name{
+    color: #000;
+    white-space: nowrap;
+    font-size: 15px;
+    padding: 5px;
+    margin: 0px;
+}
+
+@media (max-width: 900px){
+    .flex{
+        padding: 20px 10%;
+    }
+} 
+@media (max-width: 720px){
+    .flex{
+        padding: 20px 5%;
+    }
+}
+@media (max-width: 620px){
+    .flex{
+        overflow-x: scroll;
+    }
+}
+@media (max-width: 360px){
+    .flex{
+        padding: 20px 5px;
+    }
+}

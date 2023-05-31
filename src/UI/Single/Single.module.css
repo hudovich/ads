@@ -1,0 +1,22 @@
+.globalBox{
+    padding: 0px 15%;
+    display: flex;
+    justify-content: space-between;
+}
+.img{
+    max-width: 300px;
+    max-height: 300px;
+}
+.noneImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    background-color: antiquewhite;
+}
+.context{
+    display: flex;
+    flex-direction: column;
+    min-width: 70%;
+}

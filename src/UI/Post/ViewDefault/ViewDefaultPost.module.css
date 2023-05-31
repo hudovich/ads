@@ -1,0 +1,28 @@
+.boxAds{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0px 15%;
+}
+.viewAds{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: aquamarine;
+    width: 150px;
+    height: 230px;
+    margin: 5px;
+}
+.image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0px;
+    width: 120px;
+    height: 120px;
+    background-color: antiquewhite;
+}
+.img{
+    margin: 10px 0px;
+    max-width: 120px;
+    height: 120px;
+}

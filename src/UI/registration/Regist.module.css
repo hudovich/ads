@@ -1,0 +1,44 @@
+.globalBox{
+    display: flex;
+    justify-content: center;
+}
+.name{
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+.input{
+    padding: 5px 15px;
+    margin-bottom: 10px;
+    border: solid 1px #21f4f2;
+    border-radius: 8px;
+
+}
+.button{
+    display: flex;
+    justify-content: center;
+    margin-right: 5px;
+    font-size: 13px;
+    text-decoration: none;
+    color: #fff;
+    background-color: cadetblue;
+    padding: 8px 10px;
+    transition: 0.5s all;
+    border: none;
+    border-radius: 8px;
+}
+.button:hover{
+    background-color: rgb(255, 162, 0);
+    cursor: pointer;
+    color: #000;
+    transition: 0.5s all;
+}
+.input:focus-visible{
+    outline: none
+}
+.box{
+    display: flex;
+    width: 300px;
+    justify-content: center;
+    flex-direction: column;
+    padding: 25px;
+}
