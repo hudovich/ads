@@ -125,6 +125,7 @@
   ],
   "massage": [
     {
+      "id": 1,
       "idUsers": [
         1,
         "2"
@@ -158,8 +159,18 @@
           "id": 1
         }
       ],
-      "massage": [],
-      "id": 1
+      "massage": [
+        {
+          "id": 1,
+          "content": "Привет Боб",
+          "author": 1
+        },
+        {
+          "id": 2,
+          "content": "Как твои дела?",
+          "author": 1
+        }
+      ]
     }
   ],
   "login": {

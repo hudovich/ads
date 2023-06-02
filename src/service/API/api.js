@@ -1,13 +1,19 @@
 import axios from 'axios';
 
+const instance = axios.create({
+    baseURL: 'http://localhost:3001/',
+    timeout: 1000,
+    headers: {'X-Custom-Header': 'foobar'}
+  });
+
 export const api = {
     post:{
-        getPost: () => {return axios.get('http://localhost:3001/posts')},
-        getSinglePost: (id) => {return axios.get(`http://localhost:3001/posts/${id}`)},
-        getPostCat: (id) => {return axios.get(`http://localhost:3001/posts?category_like=${id}`)},
-        setPostSearch: (text) => {return axios.get(`http://localhost:3001/posts?q=${text}`)},
+        getPost: () => {return instance.get('posts')},
+        getSinglePost: (id) => {return instance.get(`posts/${id}`)},
+        getPostCat: (id) => {return instance.get(`posts?category_like=${id}`)},
+        setPostSearch: (text) => {return instance.get(`posts?q=${text}`)},
         editPost: (id, data) => {
-            return axios.put(`http://localhost:3001/posts/${id}`, 
+            return instance.put(`posts/${id}`, 
             {
               id: data.id,
               img: data.img,
@@ -21,7 +27,7 @@ export const api = {
             })
         },
         addPost: (data) => {
-            return axios.post(`http://localhost:3001/posts/`, 
+            return instance.post(`posts/`, 
             {
               img: data.img,
               name: data.name,
@@ -34,20 +40,20 @@ export const api = {
             })
         },
         delite: (id) => {
-            return axios.delete(`http://localhost:3001/posts/${id}`)
+            return instance.delete(`posts/${id}`)
         }
     },
     category:{
-        getCategory: () => {return axios.get(`http://localhost:3001/category/`)} //apiCategory
+        getCategory: () => {return instance.get(`/category/`)} //apiCategory
     },
     pages:{
-        getPages: () => {return axios.get(`http://localhost:3001/pages/`)}, //apiPages
-        getPagesID: (id) => {return axios.get(`http://localhost:3001/pages/${id}`)} //apiPagesID
+        getPages: () => {return instance.get(`pages`)},
+        getPagesID: (id) => {return instance.get(`pages/${id}`)}
     },
     authorization:{
-        login: (data) => { return axios.post(`http://localhost:3001/login`, {email:data.login, password:data.pass})}, //login
+        login: (data) => { return instance.post(`login`, {email:data.login, password:data.pass})}, //login
         registration: (data) => {
-            axios.post(`http://localhost:3001/register`, { 
+            instance.post(`register`, { 
                 email: data.email, 
                 password: data.pass,
                 name: "", 
@@ -70,16 +76,16 @@ export const api = {
     acaunt:{
         setUser: () => {
             const email  = localStorage.getItem("email");
-            return axios.get(`http://localhost:3001/users?email=${email}`);
+            return instance.get(`users?email=${email}`);
         },
         setUserID: (id) => {
-            return axios.get(`http://localhost:3001/users/${id}`)
+            return instance.get(`users/${id}`)
         },
         setUserPost: (id) => {
-            return axios.get(`http://localhost:3001/posts?author=${id}`);
+            return instance.get(`posts?author=${id}`);
         },
         editAcaunt: (id, data, img) => {
-            return axios.put(`http://localhost:3001/users/${id}`, 
+            return instance.put(`users/${id}`, 
             {
               email: data.email,
               password: data.password,
@@ -93,14 +99,16 @@ export const api = {
             })
         },
         delete: (id) =>{
-            return axios.delete(`http://localhost:3001/users/${id}`)
+            return instance.delete(`users/${id}`)
         }        
     },
     chat:{
-        createMassage: (data) => axios.post(`http://localhost:3001/massage`, data ),
-        setChatUser: (id) => axios.get(`http://localhost:3001/massage?idUsers_like=${id}`),
-        setChatID: (id) => axios.get(`http://localhost:3001/massage/${id}`),
-        setAllChat: () => axios.get("http://localhost:3001/massage")
+        createMassage: (data) => instance.post(`massage`, data ),
+        setChatUser: (id) => instance.get(`massage?idUsers_like=${id}`),
+        setChatID: (id) => instance.get(`massage/${id}`),
+        setAllChat: () => instance.get("massage"),
+        setDelChat: (id) => instance.delete(`massage/${id}`),
+        setPushMassage: (id, data) => instance.put(`massage/${id}`, data),
     }
 }
 

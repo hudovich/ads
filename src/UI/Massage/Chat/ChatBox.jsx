@@ -5,7 +5,7 @@ import {massageThank} from '../../../service/store/chat'
 
 let mapStateToProps = (state) => {
     return{
-        massage: state.massage.massage,
+        massage: state.massage.chat,
         users: state.user.acaunt,
     }
 }
